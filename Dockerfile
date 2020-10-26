@@ -16,7 +16,8 @@ ENV TZ=Etc/UTC
 
 COPY scripts /rocker_scripts
 
-RUN /rocker_scripts/install_R.sh
+RUN chmod +x /rocker_scripts/*.sh \
+    && /rocker_scripts/install_R.sh
 
 #RStudio
 ENV S6_VERSION=v1.21.7.0
@@ -24,8 +25,8 @@ ENV RSTUDIO_VERSION=latest
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 
 
-RUN /rocker_scripts/install_rstudio.sh
-RUN /rocker_scripts/install_pandoc.sh
+RUN /rocker_scripts/install_rstudio.sh \
+    && /rocker_scripts/install_pandoc.sh
 
 #Tidyverse
 RUN /rocker_scripts/install_tidyverse.sh
