@@ -9,7 +9,7 @@ apt-get update -qq && apt-get -y --no-install-recommends install \
     libxml2-dev \
     libcairo2-dev \
     libgit2-dev \
-    default-libmysqlclient-dev \
+    libmysqlclient-dev \
     libpq-dev \
     libsasl2-dev \
     libsqlite3-dev \
