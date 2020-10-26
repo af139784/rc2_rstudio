@@ -29,13 +29,13 @@ RUN /rocker_scripts/install_rstudio.sh \
     && /rocker_scripts/install_pandoc.sh
 
 #Tidyverse
-RUN /rocker_scripts/install_tidyverse.sh
+#RUN /rocker_scripts/install_tidyverse.sh
 
 #Verse
-ENV CTAN_REPO=http://mirror.ctan.org/systems/texlive/tlnet
-ENV PATH=/usr/local/texlive/bin/x86_64-linux:$PATH
+#ENV CTAN_REPO=http://mirror.ctan.org/systems/texlive/tlnet
+#ENV PATH=/usr/local/texlive/bin/x86_64-linux:$PATH
 
-RUN /rocker_scripts/install_verse.sh
+#RUN /rocker_scripts/install_verse.sh
 
 EXPOSE 8787
 
