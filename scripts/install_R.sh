@@ -4,8 +4,8 @@ set -e
 apt-get update && apt-get -y install lsb-release
 
 UBUNTU_VERSION=${UBUNTU_VERSION:-`lsb_release -sc`}
-LANG=${LANG:-en_US.UTF-8}
-LC_ALL=${LC_ALL:-en_US.UTF-8}
+#LANG=${LANG:-en_US.UTF-8}
+#LC_ALL=${LC_ALL:-en_US.UTF-8}
 CRAN=${CRAN:-https://cran.r-project.org}
 
 ##  mechanism to force source installs if we're using RSPM
@@ -20,6 +20,7 @@ R_HOME=${R_HOME:-/usr/local/lib/R}
 
 READLINE_VERSION=8
 OPENBLAS=libopenblas-dev
+CURL=libcurl4
 if [ ${UBUNTU_VERSION} == "bionic" ]; then
   READLINE_VERSION=7
   OPENBLAS=libopenblas-dev
@@ -27,6 +28,7 @@ fi
 if [ ${UBUNTU_VERSION} == "xenial" ]; then
   READLINE_VERSION=6
   OPENBLAS=libopenblas-dev
+  CURL=libcurl3
 fi
 
 apt-get update \
@@ -41,7 +43,7 @@ apt-get update \
     gsfonts \
     libblas-dev \
     libbz2-* \
-    libcurl4 \
+    ${CURL} \
     libicu* \
     libpcre2* \
     libjpeg-turbo* \
